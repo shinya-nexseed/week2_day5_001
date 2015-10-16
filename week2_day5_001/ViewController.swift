@@ -35,18 +35,21 @@ class ViewController: UIViewController {
         //// iOSでのデータ永続化手法のひとつ
         //// plistファイルにデータを書き込んでおき、呼び出して変数化して使います。
         
-        // plistを特定して変数に保持
+        // plistを特定して変数に保持 (plistのRootをArray型から作成した場合)
         var filePath = NSBundle.mainBundle().pathForResource("members", ofType: "plist")
         
-        var members = NSArray(contentsOfFile: filePath!)
+        // 型を指定してplistのデータを取得
+        var members:NSArray = NSArray(contentsOfFile: filePath!)!
+        println(members[0])
         
-        println("\(members)")
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         // println("viewWillAppear")
         // println(__FUNCTION__)
+        
+        // printlnが存在するメソッドの名前と行数を変えす
         println("\(__FUNCTION__) : \(__LINE__)")
     }
     
